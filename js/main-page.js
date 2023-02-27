@@ -6,7 +6,7 @@ const renderBookItem = (data) => {
   const container = createEl({ tag: 'div', className: 'book' })
   const bookName = createEl({ tag: 'h2', text: data.name })
   const bookAuthor = createEl({ tag: 'p', text: data.author })
-  const detailLink = createEl({ tag: 'a', className: 'detail-link', href: '/detail.html', text: 'Подробнее...' })
+  const detailLink = createEl({ tag: 'a', className: 'detail-link', href: `/detail.html?id=${data.id}`, text: 'Подробнее...' })
   const likeBtn = createEl({ tag: 'button', className: 'like-btn icon-btn', innerHTML: likeSvg })
   const deleteBtn = createEl({ tag: 'button', className: 'delete-btn icon-btn', innerHTML: deleteSvg })
   container.append(bookName, bookAuthor, detailLink, likeBtn, deleteBtn)
@@ -35,7 +35,7 @@ const removeLoader = () => {
   document.querySelector('.loader').remove()
 }
 
-const renderBooks = async () => {
+export const renderBooks = async () => {
   const container = document.querySelector('.catalog')
   renderLoader(container)
 

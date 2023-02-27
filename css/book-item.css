@@ -14,7 +14,7 @@
 
 @media screen and (max-width: 900px) {
   .book {
-    width: calc(100% / 2 - (30px / 2));
+    width: calc(100% / 1 - (30px / 2));
     margin-right: 30px;
   }
   .book:nth-child(3n) {
