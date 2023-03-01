@@ -2,6 +2,7 @@ import { createEl } from './utils.js'
 import { likeSvg, deleteSvg } from './svg-icons.js'
 import { getBooks } from './api.js'
 
+
 const renderBookItem = (data) => {
   const container = createEl({ tag: 'div', className: 'book' })
   const bookName = createEl({ tag: 'h2', text: data.name })
@@ -12,6 +13,8 @@ const renderBookItem = (data) => {
   container.append(bookName, bookAuthor, detailLink, likeBtn, deleteBtn)
   return container
 }
+
+
 
 const renderLoader = (parent) => {
   const loader = createEl({
@@ -55,3 +58,12 @@ export const renderBooks = async () => {
 }
 
 renderBooks()
+
+const like = document.querySelectorAll('.like-btn')
+
+like.forEach((likes) => {
+  likes.addEventListener('click', () => {
+  likes.remove(deleteBtn)
+})
+})
+

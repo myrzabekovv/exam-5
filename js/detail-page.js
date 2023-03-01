@@ -1,13 +1,28 @@
 import { getBookId } from "./api.js"
 
-const search = window.location.search
+const id = new URLSearchParams(window.location.search).get('id')
+let contactData = null
 
-const searchParams = new URLSearchParams(search)
-const id = searchParams.get('id')
+const td = document.querySelector('.info')
+const editBtn = document.querySelector('.edit-btn')
 
-
-
-getBookId()
-.then(() => {
-  
+getBookId(id)
+.then((data) => {
+  contactData = data
+  renderContactPage(data)
 })
+.catch(() => {
+  // обработка ошибкиdata
+})
+.finally(() => {
+  // убирать loader
+})
+
+
+editBtn.addEventListener('click', () => {
+  console.log(contactData)
+  localStorage.setItem('editData', JSON.stringify(contactData))
+  window.location.href = `/edit.html`
+})
+
+console.log(id)

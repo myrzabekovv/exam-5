@@ -11,7 +11,7 @@ export const getBooks = async () => {
 }
 
 export const getBookId = async (data) => {
-  const response = await fetch(createApiRoute(`/books/detail/${data.id}`))
+  const response = await fetch(createApiRoute(`/books/detail/${data}`))
   const id = await response.json()
   return id
 }
