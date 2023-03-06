@@ -1,6 +1,6 @@
 import { createEl } from './utils.js'
 import { likeSvg, deleteSvg } from './svg-icons.js'
-import { getBooks } from './api.js'
+import { getBooks, deleteBook } from './api.js'
 
 
 const renderBookItem = (data) => {
@@ -9,7 +9,12 @@ const renderBookItem = (data) => {
   const bookAuthor = createEl({ tag: 'p', text: data.author })
   const detailLink = createEl({ tag: 'a', className: 'detail-link', href: `/detail.html?id=${data.id}`, text: 'Подробнее...' })
   const likeBtn = createEl({ tag: 'button', className: 'like-btn icon-btn', innerHTML: likeSvg })
-  const deleteBtn = createEl({ tag: 'button', className: 'delete-btn icon-btn', innerHTML: deleteSvg })
+  const deleteBtn = createEl({ tag: 'button', className: 'delete-btn icon-btn', id: data.id, innerHTML: deleteSvg })
+
+  deleteBtn.addEventListener('click', () => {
+    deleteBook(data.id)
+  })
+
   container.append(bookName, bookAuthor, detailLink, likeBtn, deleteBtn)
   return container
 }
@@ -61,9 +66,10 @@ renderBooks()
 
 const like = document.querySelectorAll('.like-btn')
 
+
 like.forEach((likes) => {
   likes.addEventListener('click', () => {
-  likes.remove(deleteBtn)
+  likeBtn().remove()
 })
 })
 

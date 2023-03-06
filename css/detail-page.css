@@ -10,9 +10,21 @@
   position: relative;
 }
 
+.up-con {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  gap: 20px;
+}
+
+.btns {
+  display: flex;
+  gap: 10px;
+}
+
 .book-detail h1 {
   margin-bottom: 24px;
-  width: calc(100% - 100px);
+  /* width: calc(100% - 100px); */
 }
 
 .book-detail__table td {
@@ -25,19 +37,19 @@
 }
 
 .book-detail .like-btn {
-  position: absolute;
+  /* position: absolute; */
   top: 20px;
   right: 30px;
 }
 
 .book-detail .edit-btn {
-  position: absolute;
+  /* position: absolute; */
   top: 20px;
   right: 130px;
 }
 
 .book-detail .delete-btn {
-  position: absolute;
+  /* position: absolute; */
   top: 20px;
   right: 80px;
 }

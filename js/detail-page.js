@@ -1,15 +1,16 @@
-import { getBookId } from "./api.js"
+import { getDetail } from "./api.js"
+import { renderDetailPage } from "./utils.js"
 
-const id = new URLSearchParams(window.location.search).get('id')
+let id = new URLSearchParams(window.location.search).get('id')
 let contactData = null
 
-const td = document.querySelector('.info')
-const editBtn = document.querySelector('.edit-btn')
+document.querySelector('.book-detail a').setAttribute('href', `/edit.html?id=${id}`)
 
-getBookId(id)
+
+getDetail(id)
 .then((data) => {
+  renderDetailPage(data)
   contactData = data
-  renderContactPage(data)
 })
 .catch(() => {
   // обработка ошибкиdata
@@ -17,6 +18,8 @@ getBookId(id)
 .finally(() => {
   // убирать loader
 })
+
+const editBtn = document.querySelector('.edit-btn')
 
 
 editBtn.addEventListener('click', () => {

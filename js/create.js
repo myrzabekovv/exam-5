@@ -21,12 +21,13 @@ const createBook = async (data) => {
   console.log(newBook)  
 }
 
-createBtn.addEventListener('click', () => {
+createBtn.addEventListener('click', (e) => {
+  e.preventDefault()
   createBook({
     name: name.value,
     author: author.value,
-    publishYear: publishYear.value,
-    publishHouse: publishHouse.value,
+    publishYear: Number(publishYear.value),
+    publishHouse: Number(publishHouse.value),
     pagesNumber: pagesNumber.value,
     genres: genres.value,
     originalLanguage: originalLanguage.value
