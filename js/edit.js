@@ -37,6 +37,7 @@ editBtn.addEventListener('click', (e) => {
     originalLanguage: originalLanguage.value
   }
   editBooks(editBook, editData.id)
+  location.href = 'index.html'
 })
 
 console.log( editData.id)

@@ -1,4 +1,4 @@
-import { getDetail } from "./api.js"
+import { deleteBook, getDetail } from "./api.js"
 import { renderDetailPage } from "./utils.js"
 
 let id = new URLSearchParams(window.location.search).get('id')
@@ -11,6 +11,12 @@ getDetail(id)
 .then((data) => {
   renderDetailPage(data)
   contactData = data
+
+  const btnDelete = Array.from(document.querySelectorAll('.delete-btn'))
+  btnDelete[0].addEventListener('click', () => {
+    deleteBook(id)
+    location.href = 'index.html'
+  })
 })
 .catch(() => {
   // обработка ошибкиdata

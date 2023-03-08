@@ -27,9 +27,10 @@ createBtn.addEventListener('click', (e) => {
     name: name.value,
     author: author.value,
     publishYear: Number(publishYear.value),
-    publishHouse: Number(publishHouse.value),
-    pagesNumber: pagesNumber.value,
-    genres: genres.value,
+    publishHouse: publishHouse.value,
+    pagesNumber: Number(pagesNumber.value),
+    genres: genres.value.split(','),
     originalLanguage: originalLanguage.value
   })
+  location.href = 'index.html'
 })
